@@ -1,0 +1,556 @@
+body {
+  margin: 0;
+  background-color: #c7bfbb;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.page-container {
+  width: 95%;
+  max-width: 1400px;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.header {
+  height: 64px;
+  background-color: rgb(238, 228, 217);
+  border-bottom: 1px solid #e5e5e5;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.logo strong {
+  margin-left: 6px;
+}
+
+.header nav {
+  display: flex;
+  gap: 30px;
+}
+
+.header nav a {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+}
+
+.header nav a.active {
+  color: #222;
+  font-weight: 600;
+}
+
+.header nav a:hover {
+  color: #222;
+  font-weight: 600;
+}
+
+.add-button {
+  background-color: #222;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 6px;
+  padding: 9px 15px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-button:hover {
+  opacity: 0.7;
+}
+
+
+/* =========================
+   HUVUDINNEHÅLL
+   ========================= */
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 35px 30px;
+  box-sizing: border-box;
+}
+
+main > h1 {
+  text-align: center;
+  font-size: 26px;
+  margin: 0 0 8px;
+}
+
+.intro {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin: 20px auto 25px;
+  max-width: 500px;
+  line-height: 24px;
+}
+
+
+/* =========================
+   SÖKRUTA
+   ========================= */
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.search-container input {
+  width: 260px;
+  padding: 11px 14px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.search-container button {
+  background-color: #222;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 6px;
+  padding: 9px 15px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-container button:hover {
+  opacity: 0.7;
+}
+
+/* =========================
+   KLÄDER
+   ========================= */
+
+.clothing-grid {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+
+/* =========================
+   KLÄDKORT
+   ========================= */
+
+.clothing-card {
+  width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+
+  background-color: white;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   BILD
+   ========================= */
+
+.clothing-image {
+  width: 100%;
+  height: 300px;
+
+  overflow: hidden;
+
+  background-color: #f3f0ee;
+
+  position: relative;
+}
+
+.clothing-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* =========================
+   KATEGORIBUBBLA
+   ========================= */
+
+.category-bubble {
+  position: absolute;
+
+  bottom: 15px;
+  left: 15px;
+
+  background-color: #dfd8d4;
+
+  padding: 8px 14px;
+
+  border-radius: 20px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #444;
+}
+
+
+/* =========================
+   INFORMATION UNDER BILDEN
+   ========================= */
+
+.clothing-info {
+  padding: 15px;
+}
+
+.clothing-info h2 {
+  font-size: 20px;
+
+  margin: 0 0 6px;
+
+  font-weight: 700;
+}
+
+.clothing-info p {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 16px;
+}
+
+/* FORMULÄR */
+
+.form-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 30px;
+}
+
+.form-header {
+  margin-bottom: 30px;
+}
+
+.form-header h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.form-header p {
+  margin: 0;
+  color: #666;
+}
+
+.clothing-form {
+  background-color: #f3f0ee;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  padding: 30px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.clothing-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.clothing-form input,
+.clothing-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 11px 12px;
+
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+
+  background-color: white;
+
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.clothing-form input:focus,
+.clothing-form textarea:focus {
+  outline: none;
+  border-color: #999;
+}
+
+.clothing-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.submit-button {
+  background-color: #222;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 6px;
+  padding: 9px 15px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-button:hover {
+  opacity: 0.7;
+}
+
+/* KLÄDKORT */
+
+.clothing-image a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.clothing-image {
+  overflow: hidden;
+  position: relative;
+}
+
+.clothing-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  transition: transform 0.3s ease;
+}
+
+.clothing-image:hover img {
+  transform: scale(0.95);
+}
+
+/* =========================
+   DETALJSIDA FÖR PLAGG
+   ========================= */
+
+.clothing-details {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+
+/* Tillbaka-länk */
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 25px;
+
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+
+/* Övre delen */
+
+.details-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+
+/* Stor bild */
+
+.details-image {
+  height: 480px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: none;
+}
+
+.details-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* Information */
+
+.details-info {
+  padding-top: 15px;
+}
+
+.details-info .category-bubble {
+  position: static;
+  display: inline-block;
+
+  margin-bottom: 12px;
+}
+
+.details-info h1 {
+  margin: 0 0 6px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.details-brand {
+  margin: 0 0 20px;
+  color: #666;
+  font-size: 16px;
+}
+
+.details-description {
+  max-width: 450px;
+  line-height: 1.6;
+  color: #555;
+  font-size: 14px;
+}
+
+
+/* Knappar */
+
+.details-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.details-buttons button {
+  background-color: #222;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 6px;
+  padding: 9px 15px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.details-buttons button:hover {
+  opacity: 0.7;
+}
+
+.details-buttons button:last-child {
+  background-color: #ffdbda;
+  color: #ff514b;
+  font-weight: bold;
+  border: 1px solid #ff514b;
+}
+
+
+/* Detaljruta */
+
+.details-box {
+  margin-top: 30px;
+
+  padding: 20px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+
+  background-color: #f3f0ee;
+}
+
+.details-box h2 {
+  margin: 0 0 18px;
+  font-size: 18px;
+}
+
+.details-box p {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+
+  margin: 10px 0;
+
+  font-size: 14px;
+}
+
+.details-box p span {
+  color: #888;
+}
+
+
+/* Anpassning för mindre skärm */
+
+@media (max-width: 700px) {
+
+  .details-top {
+    grid-template-columns: 1fr;
+  }
+
+  .details-image {
+    height: 400px;
+  }
+
+  .details-info h1 {
+    font-size: 28px;
+  }
+
+}
+
+/* IKONER */
+
+.stars-icon {
+  width: 40px;
+  height: auto;
+  margin-left: 5px;
+}
+
+.hanger-icon {
+  width: 40px;
+  height: auto;
+  transform: translateY(-5px);
+  margin: 0 5px 0 5px;
+}
