@@ -16,7 +16,7 @@ function ClothingForm() {
   const handleSubmt = (event) => {
     event.preventDefault()
 
-    fetch("http://localhost:3000/api/clothes", {
+    fetch("/api/clothes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -73,7 +73,6 @@ function ClothingForm() {
 
         </div>
 
-
         <div className="form-row">
 
           <label>
@@ -95,7 +94,6 @@ function ClothingForm() {
           </label>
 
         </div>
-
 
         <div className="form-row">
 
@@ -119,7 +117,6 @@ function ClothingForm() {
 
         </div>
 
-
         <label>
           Beskrivning
           <textarea
@@ -127,7 +124,6 @@ function ClothingForm() {
             onChange={(event) => setDescription(event.target.value)}
           />
         </label>
-
 
         <label>
           Bild
@@ -138,7 +134,6 @@ function ClothingForm() {
             placeholder="Klistra in bildens URL"
           />
         </label>
-
 
         <button type="submit" className="submit-button">
           Lägg till

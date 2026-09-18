@@ -5,12 +5,12 @@ function Home() {
   const [clothes, setClothes] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/clothes")
+    fetch("/api/clothes")
       .then((response) => response.json())
       .then(data => {
-      const shuffledClothes = [...data].sort(() => Math.random() - 0.5)
-      setClothes(shuffledClothes)
-})
+        const shuffledClothes = [...data].sort(() => Math.random() - 0.5)
+        setClothes(shuffledClothes)
+      })
       .catch((error) => console.error("Kunde inte hämta kläder:", error))
   }, [])
 

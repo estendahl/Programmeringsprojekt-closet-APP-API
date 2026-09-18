@@ -1,19 +1,24 @@
+const path = require("path");
 const cors = require("cors");
 const express = require("express");
 const db = require("./database");
 
 const app = express();
+
 app.use(express.json());
 app.use(cors());
 
-// VISA ALLA KLÄDER (GET)
+// React-appens filer
+app.use(express.static(path.join(__dirname, "../dist")));
+
+// API - VISA ALLA KLÄDER
 app.get("/api/clothes", (req, res) => {
     const clothes = db.prepare("SELECT * FROM clothes").all();
 
     res.status(200).json(clothes);
 });
 
-// VISA ETT PLAGG (GET)
+// API - VISA ETT PLAGG
 app.get("/api/clothes/:id", (req, res) => {
     const clothes = db
         .prepare("SELECT * FROM clothes WHERE id = ?")
@@ -21,21 +26,22 @@ app.get("/api/clothes/:id", (req, res) => {
 
     if (!clothes) {
         return res.status(404).send();
-}
+    }
 
     res.status(200).json(clothes);
 });
 
-// SKAPA PLAGG (POST)
+// API - SKAPA PLAGG
 app.post("/api/clothes", (req, res) => {
-    const { name,
-            description,
-            category,
-            color,
-            size,
-            brand,
-            material,
-            image
+    const {
+        name,
+        description,
+        category,
+        color,
+        size,
+        brand,
+        material,
+        image
     } = req.body;
 
     if (
@@ -66,13 +72,13 @@ app.post("/api/clothes", (req, res) => {
         );
 
     const clothes = db
-            .prepare("SELECT * FROM clothes WHERE id = ?")
-            .get(result.lastInsertRowid);
+        .prepare("SELECT * FROM clothes WHERE id = ?")
+        .get(result.lastInsertRowid);
 
     res.status(201).json(clothes);
 });
 
-// UPPDATERA ETT PLAGG (PUT)
+// API - UPPDATERA PLAGG
 app.put("/api/clothes/:id", (req, res) => {
     const {
         name,
@@ -85,7 +91,7 @@ app.put("/api/clothes/:id", (req, res) => {
         image
     } = req.body;
 
-     if (
+    if (
         typeof name !== "string" ||
         name.length < 2 ||
         name.length > 25
@@ -128,7 +134,7 @@ app.put("/api/clothes/:id", (req, res) => {
     res.status(204).send();
 });
 
-// TA BORT ETT PLAGG (DELETE)
+// API - TA BORT PLAGG
 app.delete("/api/clothes/:id", (req, res) => {
     const result = db
         .prepare("DELETE FROM clothes WHERE id = ?")
@@ -141,8 +147,14 @@ app.delete("/api/clothes/:id", (req, res) => {
     res.status(204).send();
 });
 
-// STARTA SERVERN
-app.listen(3000, () => {
-    console.log("Server running on http://localhost:3000");
+// VISA REACT-APPEN
+app.get("/{*splat}", (req, res) => {
+    res.sendFile(path.join(__dirname, "../dist/index.html"));
+});
 
+// STARTA SERVERN
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });

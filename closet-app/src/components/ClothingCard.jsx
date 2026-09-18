@@ -2,21 +2,22 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 
 function ClothingCard({ clothing }) {
-    const [deleted, setDeleted] = useState(false)
-    const handleDelete = () => {
-  fetch(`http://localhost:3000/api/clothes/${clothing.id}`, {
-    method: "DELETE"
-  })
-  .then(response => {
-    if (response.ok) {
-      setDeleted(true)
-    }
-  })
-}
+  const [deleted, setDeleted] = useState(false)
 
-if (deleted) {
-  return null
-}
+  const handleDelete = () => {
+    fetch(`/api/clothes/${clothing.id}`, {
+      method: "DELETE"
+    })
+      .then(response => {
+        if (response.ok) {
+          setDeleted(true)
+        }
+      })
+  }
+
+  if (deleted) {
+    return null
+  }
 
   return (
     <div className="clothing-card">

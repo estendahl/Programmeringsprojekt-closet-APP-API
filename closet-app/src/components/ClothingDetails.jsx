@@ -7,22 +7,22 @@ function ClothingDetails() {
   const [clothing, setClothing] = useState(null)
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/clothes/${id}`)
+    fetch(`/api/clothes/${id}`)
       .then(response => response.json())
       .then(data => setClothing(data))
       .catch(error => console.error(error))
   }, [id])
 
   const handleDelete = () => {
-  fetch(`http://localhost:3000/api/clothes/${id}`, {
-    method: "DELETE"
-  })
-    .then(response => {
-      if (response.ok) {
-        window.location.href = "/"
-      }
+    fetch(`/api/clothes/${id}`, {
+      method: "DELETE"
     })
-}
+      .then(response => {
+        if (response.ok) {
+          window.location.href = "/"
+        }
+      })
+  }
 
   if (!clothing) {
     return <p>Laddar...</p>
@@ -60,11 +60,11 @@ function ClothingDetails() {
             {clothing.description}
           </p>
 
-        <div className="details-buttons">
+          <div className="details-buttons">
             <button><Pencil size={14} /> Redigera</button>
 
             <button onClick={handleDelete}><Trash size={14} /> Radera</button>
-        </div>
+          </div>
 
         </div>
 
